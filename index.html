@@ -12,6 +12,62 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Tic Tac Toe</h1>
+      <!--We need to create the sign-up, sign-in, change password, and sign-out auth-->
+      <p id="message"></p>
+
+      <form id="sign-up">
+        <legend>Sign up</legend>
+      <input type="text" name="credentials[email]" placeholder="email">
+      <input type="password" name="credentials[password]" placeholder="password">
+      <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
+      <input type="submit" value="Sign up!">
+      </form>
+
+      <form id="sign-in">
+        <legend>Sign in</legend>
+        <input type="text" name="credentials[email]" placeholder="email">
+        <input type="password" name="credentials[password]" placeholder="password">
+        <input type="submit" value="Sign in!">
+      </form>
+
+      <form id="change-password">
+        <legend>Change password!</legend>
+        <input type="password" name="passwords[old]" placeholder="old password">
+        <input type="password" name="passwords[new]" placeholder="new password">
+        <input type="submit" value="Change password!">
+      </form>
+
+      <form id="sign-out">
+        <legend>Sign out</legend>
+        <input type="submit" value="Sign out">
+      </form>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 box" id="0"></div>
+        <div class="col-md-4 box" id="1"></div>
+        <div class="col-md-4 box" id="2"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 box" id="3"></div>
+        <div class="col-md-4 box" id="4"></div>
+        <div class="col-md-4 box" id="5"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 box" id="6"></div>
+        <div class="col-md-4 box" id="7"></div>
+        <div class="col-md-4 box" id="8"></div>
+      </div>
+
+    </div>
+
     </body>
+
+    <footer>
+      <form id="new-game">
+        <input type="submit" value="New Game">
+      </form>
+    </footer>
+
 </html>

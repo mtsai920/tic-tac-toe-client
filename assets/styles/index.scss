@@ -1,1 +1,53 @@
 @import '~bootstrap/scss/bootstrap';
+
+$green: #008000;
+$red: #f00;
+$black: #000000;
+
+#change-password {
+  display: none;
+  padding: 10px;
+}
+
+#sign-out {
+  display: none;
+  padding: 10px;
+}
+
+#sign-up {
+  text-align: center;
+  padding: 10px;
+}
+
+#sign-in {
+  text-align: center;
+  padding: 10px;
+}
+
+.box {
+  padding: 10px;
+  align-items: center;
+  border: 1px solid $black;
+  height: 150px;
+  justify-content: center;
+  // display: none;
+  text-align: center;
+  line-height: 150px;
+  font-size: 400%;
+}
+
+.container {
+  width: 50%;
+}
+
+.success {
+  color: $green;
+}
+
+.failure {
+  color: $red;
+}
+
+h1 {
+  text-align: center;
+}
