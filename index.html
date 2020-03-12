@@ -13,11 +13,12 @@
     </head>
     <body>
       <h1>Tic Tac Toe</h1>
+
       <!--We need to create the sign-up, sign-in, change password, and sign-out auth-->
       <p id="message"></p>
 
       <form id="sign-up">
-        <legend>Sign up</legend>
+        <h4>Sign up</h4>
       <input type="text" name="credentials[email]" placeholder="email">
       <input type="password" name="credentials[password]" placeholder="password">
       <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
@@ -25,24 +26,27 @@
       </form>
 
       <form id="sign-in">
-        <legend>Sign in</legend>
+        <h4>Sign in</h4>
         <input type="text" name="credentials[email]" placeholder="email">
         <input type="password" name="credentials[password]" placeholder="password">
         <input type="submit" value="Sign in!">
       </form>
 
       <form id="change-password">
-        <legend>Change password!</legend>
+        <h4>Change password!</h4>
         <input type="password" name="passwords[old]" placeholder="old password">
         <input type="password" name="passwords[new]" placeholder="new password">
         <input type="submit" value="Change password!">
       </form>
 
       <form id="sign-out">
-        <legend>Sign out</legend>
+        <h4>Sign out</h4>
         <input type="submit" value="Sign out">
       </form>
 
+<!--Creating the game board and the messages-->
+    <p class="game"></p>
+    <p class="info"></p>
     <div class="container">
       <div class="row">
         <div class="col-md-4 box" id="0"></div>
@@ -62,12 +66,12 @@
 
     </div>
 
-    </body>
-
     <footer>
       <form id="new-game">
         <input type="submit" value="New Game">
       </form>
     </footer>
+
+  </body>
 
 </html>

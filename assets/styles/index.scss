@@ -7,37 +7,59 @@ $black: #000000;
 #change-password {
   display: none;
   padding: 10px;
+  text-align: center;
 }
 
 #sign-out {
   display: none;
   padding: 10px;
+  text-align: center;
 }
 
 #sign-up {
-  text-align: center;
   padding: 10px;
+  text-align: center;
 }
 
 #sign-in {
-  text-align: center;
   padding: 10px;
+  text-align: center;
+}
+
+#new-game {
+  padding: 10px;
+  text-align: center;
+}
+
+.game {
+  color: $green;
+  font-size: 150%;
+  text-align: center;
+}
+
+.info {
+  color: $red;
+  text-align: center;
+}
+
+#message {
+  text-align: center;
 }
 
 .box {
-  padding: 10px;
   align-items: center;
   border: 1px solid $black;
+  font-size: 400%;
   height: 150px;
   justify-content: center;
+  line-height: 150px;
+  padding: 10px;
   // display: none;
   text-align: center;
-  line-height: 150px;
-  font-size: 400%;
 }
 
 .container {
-  width: 50%;
+  width: 40%;
 }
 
 .success {

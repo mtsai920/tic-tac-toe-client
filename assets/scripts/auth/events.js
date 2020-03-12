@@ -53,21 +53,86 @@ const onSignOut = function (event) {
 //   8: 0
 // }
 
+// Creating array to represent game board
+let gameBoard = [null, null, null, null, null, null, null, null, null]
+
+let count = 0
+
+// Creating variable that stores whether the player is 'X' or 'O'
+const player = (count % 2 === 0) ? 'X' : 'O'
+
 const onClick = function (event) {
   // const cellId = event.target.id
-  const cell = event.target
-  count[cellId]++
-  console.table(count)
 
-  if (count[cellId] % 2 !== 0) {
+  // Assigning a variable to the individual cells in the board
+  const cell = event.target
+  // Assigning an ID variable to the ID of each individual cell
+  const id = event.target.id
+
+  // If a cell on the board is already taken, disallow any further activity and send the user a message
+  if (gameBoard[id] !== null) {
+    $('.info').text('Cannot play here!')
+    return
+  }
+
+  // CLearing the error text after they play a valid cell
+  if (gameBoard[id] === null) {
+    $('.info').text('')
+  }
+
+  // After we ensure that players cannot select already played cells, check for a winner
+  if (checkWin(player) === true) {
+    return
+  }
+
+  // This if statement allows the player to add Xs and Os to the board, while also updating the gameBoard array
+  if (count % 2 === 0) {
     $(cell).text('X')
+    gameBoard[id] = 'X'
   } else {
     $(cell).text('O')
+    gameBoard[id] = 'O'
+  }
+
+  console.log(gameBoard)
+  count++
+}
+
+// This function checks for a winner after the count has increased past 4
+const checkWin = function (player) {
+  if (count > 4) {
+    if (winGame(player) === true) {
+      $('.game').text('YOU WIN!')
+      return true
+    }
   }
 }
 
+// Creating all win conditions
+const winGame = function (player) {
+  if (gameBoard[0] === player && gameBoard[1] === player && gameBoard[2] === player) {
+    return true
+  } if (gameBoard[0] === player && gameBoard[3] === player && gameBoard[6] === player) {
+    return true
+  } if (gameBoard[1] === player && gameBoard[4] === player && gameBoard[7] === player) {
+    return true
+  } if (gameBoard[2] === player && gameBoard[5] === player && gameBoard[8] === player) {
+    return true
+  } if (gameBoard[3] === player && gameBoard[4] === player && gameBoard[5] === player) {
+    return true
+  } if (gameBoard[6] === player && gameBoard[7] === player && gameBoard[8] === player) {
+    return true
+  } if (gameBoard[0] === player && gameBoard[4] === player && gameBoard[8] === player) {
+    return true
+  } if (gameBoard[2] === player && gameBoard[4] === player && gameBoard[6] === player) {
+    return true
+  }
+}
+
+// Creating a button that will clear the board
 const onNewGame = function (event) {
   event.preventDefault()
+  gameBoard =
   console.log('new game clicked')
 }
 
