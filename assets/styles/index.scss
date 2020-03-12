@@ -3,6 +3,7 @@
 $green: #008000;
 $red: #f00;
 $black: #000000;
+$blue: #87CEFA;
 
 #change-password {
   display: none;
@@ -26,19 +27,24 @@ $black: #000000;
   text-align: center;
 }
 
-#new-game {
-  padding: 10px;
-  text-align: center;
-}
-
 .game {
-  color: $green;
   font-size: 150%;
   text-align: center;
 }
 
 .info {
-  color: $red;
+  text-align: center;
+}
+
+.stats {
+  display: inline-block;
+  padding: 50px;
+  text-align: left;
+}
+
+#new-game {
+  display: none;
+  padding: 10px;
   text-align: center;
 }
 
@@ -49,13 +55,18 @@ $black: #000000;
 .box {
   align-items: center;
   border: 1px solid $black;
-  font-size: 400%;
-  height: 150px;
+  font-size: 300%;
+  height: 120px;
   justify-content: center;
-  line-height: 150px;
+  line-height: 120px;
   padding: 10px;
   // display: none;
   text-align: center;
+  transition: background .5s;
+}
+
+.box:hover {
+  background-color: $blue;
 }
 
 .container {
@@ -64,10 +75,28 @@ $black: #000000;
 
 .success {
   color: $green;
+  text-align: center;
 }
 
 .failure {
   color: $red;
+  text-align: center;
+}
+
+.top-row {
+  border-top: 0;
+}
+
+.bottom-row {
+  border-bottom: 0;
+}
+
+.left {
+  border-left: 0;
+}
+
+.right {
+  border-right: 0;
 }
 
 h1 {

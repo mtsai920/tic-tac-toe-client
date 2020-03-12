@@ -11,6 +11,7 @@ const signUpSuccess = function (data) {
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('.box').show()
+  $('#new-game').show()
   console.log('signUpSuccess data is ', data)
 }
 
@@ -18,7 +19,7 @@ const signUpFailure = function (error) {
   $('#message').text('Error on sign up')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.log('signUpFailure erro r is ', error)
+  console.log('signUpFailure error is ', error)
 }
 
 const signInSuccess = function (data) {
@@ -30,6 +31,7 @@ const signInSuccess = function (data) {
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('.box').show()
+  $('#new-game').show()
   console.log('signInSuccess data is ', data)
   store.user = data.user
 }
@@ -64,6 +66,7 @@ const signOutSuccess = function () {
   $('#sign-in').show()
   $('#sign-up').show()
   $('.box').hide()
+  $('#new-game').show()
   console.log('Signed out!')
 }
 
@@ -74,6 +77,26 @@ const signOutFailure = function () {
   console.log('Failed to sign out!')
 }
 
+const newGameSuccess = function () {
+  $('#message').text('New game!')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+}
+
+const newGameFailure = function () {
+  $('#message').text('Error creating new game')
+  $('#message').removeClass()
+  $('#message').addClass('failure')
+}
+
+const getStatsSuccessful = function (data) {
+  console.log(data)
+}
+
+const getStatsFailure = function (data) {
+  $('.info').text('Failed to retrieve game info')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -82,5 +105,9 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  newGameSuccess,
+  newGameFailure,
+  getStatsSuccessful,
+  getStatsFailure
 }

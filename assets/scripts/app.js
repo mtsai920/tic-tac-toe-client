@@ -18,4 +18,6 @@ $(() => {
   $('.box').on('click', authEvents.onClick)
 
   $('#new-game').on('submit', authEvents.onNewGame)
+
+  $('.stats').on('submit', authEvents.onStats)
 })

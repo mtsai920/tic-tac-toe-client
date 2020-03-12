@@ -72,10 +72,11 @@ const onClick = function (event) {
   // If a cell on the board is already taken, disallow any further activity and send the user a message
   if (gameBoard[id] !== null) {
     $('.info').text('Cannot play here!')
+    $('.info').addClass('failure')
     return
   }
 
-  // CLearing the error text after they play a valid cell
+  // Clearing the error text after they play a valid cell
   if (gameBoard[id] === null) {
     $('.info').text('')
   }
@@ -89,21 +90,26 @@ const onClick = function (event) {
   if (count % 2 === 0) {
     $(cell).text('X')
     gameBoard[id] = 'X'
+    $('.game').text(`O's turn`)
   } else {
     $(cell).text('O')
     gameBoard[id] = 'O'
+    $('.game').text(`X's turn`)
   }
 
   console.log(gameBoard)
   count++
 }
 
-// This function checks for a winner after the count has increased past 4
+// This function checks for a winner after the count has increased past 4. If there is none message "TIED"
 const checkWin = function (player) {
   if (count > 4) {
     if (winGame(player) === true) {
       $('.game').text('YOU WIN!')
+      $('.game').addClass('success')
       return true
+    } else {
+      $('.game').text('TIED')
     }
   }
 }
@@ -132,8 +138,20 @@ const winGame = function (player) {
 // Creating a button that will clear the board
 const onNewGame = function (event) {
   event.preventDefault()
-  gameBoard =
-  console.log('new game clicked')
+  gameBoard = [null, null, null, null, null, null, null, null, null]
+  $('.box').text('')
+  $('.game').text('')
+  $('.info').text('')
+  api.newGame()
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
+}
+
+const onStats = function (event) {
+  event.preventDefault()
+  api.getStats()
+    .then(ui.getStatsSuccessful)
+    .catch(ui.getStatsFailure)
 }
 
 module.exports = {
@@ -142,5 +160,6 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onClick,
-  onNewGame
+  onNewGame,
+  onStats
 }
