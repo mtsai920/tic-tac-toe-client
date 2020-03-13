@@ -12,6 +12,7 @@ const signUpSuccess = function (data) {
   $('#sign-in').hide()
   $('.box').show()
   $('#new-game').show()
+  $('.stats').show()
   console.log('signUpSuccess data is ', data)
 }
 
@@ -32,6 +33,7 @@ const signInSuccess = function (data) {
   $('#sign-in').hide()
   $('.box').show()
   $('#new-game').show()
+  $('.stats').show()
   console.log('signInSuccess data is ', data)
   store.user = data.user
 }

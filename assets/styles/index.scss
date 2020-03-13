@@ -37,7 +37,7 @@ $blue: #87CEFA;
 }
 
 .stats {
-  display: inline-block;
+  display: none;
   padding: 50px;
   text-align: left;
 }
@@ -55,12 +55,12 @@ $blue: #87CEFA;
 .box {
   align-items: center;
   border: 1px solid $black;
+  display: none;
   font-size: 300%;
   height: 120px;
   justify-content: center;
   line-height: 120px;
   padding: 10px;
-  // display: none;
   text-align: center;
   transition: background .5s;
 }

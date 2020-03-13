@@ -58,6 +58,8 @@ let gameBoard = [null, null, null, null, null, null, null, null, null]
 
 let count = 0
 
+let game = false
+
 // Creating variable that stores whether the player is 'X' or 'O'
 const player = (count % 2 === 0) ? 'X' : 'O'
 
@@ -99,6 +101,10 @@ const onClick = function (event) {
 
   console.log(gameBoard)
   count++
+
+  if (checkWin(player)) {
+    game = true
+  }
 }
 
 // This function checks for a winner after the count has increased past 4. If there is none message "TIED"
@@ -108,8 +114,9 @@ const checkWin = function (player) {
       $('.game').text('YOU WIN!')
       $('.game').addClass('success')
       return true
-    } else {
+    } else if (count === 9) {
       $('.game').text('TIED')
+      game = true
     }
   }
 }
@@ -142,6 +149,7 @@ const onNewGame = function (event) {
   $('.box').text('')
   $('.game').text('')
   $('.info').text('')
+  count = 0
   api.newGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
