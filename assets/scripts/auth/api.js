@@ -58,11 +58,33 @@ const newGame = function () {
   })
 }
 
-const getStats = function (data) {
+const getStats = function () {
   console.log('stats')
   return $.ajax({
     url: config.apiUrl + '/games',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateGame = function (player, id) {
+  return $.ajax({
+    url: config.apiUrl + '/games' + `/${store.game}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      game: {
+        cell: {
+          index: id,
+          value: player
+        }
+      },
+      over: false
+    }
   })
 }
 
@@ -72,5 +94,6 @@ module.exports = {
   changePassword,
   signOut,
   newGame,
-  getStats
+  getStats,
+  updateGame
 }

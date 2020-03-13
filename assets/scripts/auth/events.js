@@ -60,9 +60,6 @@ let count = 0
 
 let game = false
 
-// Creating variable that stores whether the player is 'X' or 'O'
-const player = (count % 2 === 0) ? 'X' : 'O'
-
 const onClick = function (event) {
   // const cellId = event.target.id
 
@@ -70,6 +67,9 @@ const onClick = function (event) {
   const cell = event.target
   // Assigning an ID variable to the ID of each individual cell
   const id = event.target.id
+
+  // Creating variable that stores whether the player is 'X' or 'O'
+  const player = (count % 2 === 0) ? 'X' : 'O'
 
   // If a cell on the board is already taken, disallow any further activity and send the user a message
   if (gameBoard[id] !== null) {
@@ -92,11 +92,15 @@ const onClick = function (event) {
   if (count % 2 === 0) {
     $(cell).text('X')
     gameBoard[id] = 'X'
-    $('.game').text(`O's turn`)
+    $('.info').text(`O's turn`)
+    $('#message').text('')
+    onUpdateGame(player, id)
   } else {
     $(cell).text('O')
     gameBoard[id] = 'O'
-    $('.game').text(`X's turn`)
+    $('.info').text(`X's turn`)
+    $('#message').text('')
+    onUpdateGame(player, id)
   }
 
   console.log(gameBoard)
@@ -104,7 +108,14 @@ const onClick = function (event) {
 
   if (checkWin(player)) {
     game = true
+    $('.info').text('')
   }
+}
+
+const onUpdateGame = function (player, id) {
+  api.updateGame(player, id)
+    .then(ui.updateGameSuccessful)
+    .catch(ui.updateGameSuccessful)
 }
 
 // This function checks for a winner after the count has increased past 4. If there is none message "TIED"
@@ -169,5 +180,6 @@ module.exports = {
   onSignOut,
   onClick,
   onNewGame,
-  onStats
+  onStats,
+  onUpdateGame
 }

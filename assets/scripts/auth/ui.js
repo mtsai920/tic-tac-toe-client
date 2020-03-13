@@ -6,13 +6,12 @@ const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully!')
   $('#message').removeClass()
   $('#message').addClass('success')
-  $('#sign-out').show()
+  $('#sign-out').hide()
   $('#change-password').hide()
   $('#sign-up').hide()
-  $('#sign-in').hide()
-  $('.box').show()
-  $('#new-game').show()
-  $('.stats').show()
+  $('#sign-in').show()
+  $('#new-game').hide()
+  $('.stats').hide()
   console.log('signUpSuccess data is ', data)
 }
 
@@ -31,7 +30,6 @@ const signInSuccess = function (data) {
   $('#change-password').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
-  $('.box').show()
   $('#new-game').show()
   $('.stats').show()
   console.log('signInSuccess data is ', data)
@@ -68,7 +66,8 @@ const signOutSuccess = function () {
   $('#sign-in').show()
   $('#sign-up').show()
   $('.box').hide()
-  $('#new-game').show()
+  $('#new-game').hide()
+  $('.stats').hide()
   console.log('Signed out!')
 }
 
@@ -79,10 +78,12 @@ const signOutFailure = function () {
   console.log('Failed to sign out!')
 }
 
-const newGameSuccess = function () {
+const newGameSuccess = function (data) {
   $('#message').text('New game!')
   $('#message').removeClass()
   $('#message').addClass('success')
+  $('.box').show()
+  store.game = data.game.id
 }
 
 const newGameFailure = function () {
@@ -93,10 +94,21 @@ const newGameFailure = function () {
 
 const getStatsSuccessful = function (data) {
   console.log(data)
+  $('.info').text('You have played ' + data.games.length + ' games')
 }
 
 const getStatsFailure = function (data) {
   $('.info').text('Failed to retrieve game info')
+}
+
+const updateGameSuccessful = function (data) {
+  console.log('game updated')
+}
+
+const updateGameFailure = function (data) {
+  console.log('Failed to update game')
+  $('.info').text('Failed to update game')
+  $('.info').addClass('failure')
 }
 
 module.exports = {
@@ -111,5 +123,7 @@ module.exports = {
   newGameSuccess,
   newGameFailure,
   getStatsSuccessful,
-  getStatsFailure
+  getStatsFailure,
+  updateGameSuccessful,
+  updateGameFailure
 }
