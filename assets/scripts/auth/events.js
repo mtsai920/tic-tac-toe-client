@@ -41,18 +41,6 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-// const count = {
-//   0: 0,
-//   1: 0,
-//   2: 0,
-//   3: 0,
-//   4: 0,
-//   5: 0,
-//   6: 0,
-//   7: 0,
-//   8: 0
-// }
-
 // Creating array to represent game board
 let gameBoard = [null, null, null, null, null, null, null, null, null]
 
@@ -61,12 +49,14 @@ let count = 0
 let game = false
 
 const onClick = function (event) {
-  // const cellId = event.target.id
-
   // Assigning a variable to the individual cells in the board
   const cell = event.target
   // Assigning an ID variable to the ID of each individual cell
   const id = event.target.id
+  // This is called further in the click function. It's purpose is to stop the player from having to click again
+  if (game === true) {
+    return
+  }
 
   // Creating variable that stores whether the player is 'X' or 'O'
   const player = (count % 2 === 0) ? 'X' : 'O'
@@ -93,12 +83,14 @@ const onClick = function (event) {
     $(cell).text('X')
     gameBoard[id] = 'X'
     $('.info').text(`O's turn`)
+    $('.info').addClass('neutral')
     $('#message').text('')
     onUpdateGame(player, id)
   } else {
     $(cell).text('O')
     gameBoard[id] = 'O'
     $('.info').text(`X's turn`)
+    $('.info').addClass('neutral')
     $('#message').text('')
     onUpdateGame(player, id)
   }
@@ -106,6 +98,7 @@ const onClick = function (event) {
   console.log(gameBoard)
   count++
 
+  // If the player has won, send out message before the player has to click to trigger it
   if (checkWin(player)) {
     game = true
     $('.info').text('')
@@ -127,6 +120,8 @@ const checkWin = function (player) {
       return true
     } else if (count === 9) {
       $('.game').text('TIED')
+      $('.game').addClass('neutral')
+      $('.info').text('')
       game = true
     }
   }
@@ -157,10 +152,8 @@ const winGame = function (player) {
 const onNewGame = function (event) {
   event.preventDefault()
   gameBoard = [null, null, null, null, null, null, null, null, null]
-  $('.box').text('')
-  $('.game').text('')
-  $('.info').text('')
   count = 0
+  game = false
   api.newGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)

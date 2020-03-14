@@ -2,8 +2,10 @@
 
 $green: #008000;
 $red: #f00;
-$black: #000000;
+$black: #000;
 $blue: #87CEFA;
+$gray: #708090;
+
 
 #change-password {
   display: none;
@@ -14,7 +16,6 @@ $blue: #87CEFA;
 #sign-out {
   display: none;
   padding: 10px;
-  text-align: center;
 }
 
 #sign-up {
@@ -39,14 +40,12 @@ $blue: #87CEFA;
 
 .stats {
   display: none;
-  padding: 50px;
-  text-align: left;
+  padding: 10px;
 }
 
 #new-game {
   display: none;
   padding: 10px;
-  text-align: center;
 }
 
 #message {
@@ -84,6 +83,11 @@ $blue: #87CEFA;
   text-align: center;
 }
 
+.neutral {
+  color: $black;
+  text-align: center;
+}
+
 .top-row {
   border-top: 0;
 }
@@ -102,4 +106,14 @@ $blue: #87CEFA;
 
 h1 {
   text-align: center;
+}
+
+body {
+  background-color: lighten($gray, 40%);
+}
+
+.extra {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }

@@ -16,7 +16,7 @@ const signUpSuccess = function (data) {
 }
 
 const signUpFailure = function (error) {
-  $('#message').text('Error on sign up')
+  $('#message').text('Failed to sign up')
   $('#message').removeClass()
   $('#message').addClass('failure')
   console.log('signUpFailure error is ', error)
@@ -37,7 +37,7 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (error) {
-  $('#message').text('Error on sign in')
+  $('#message').text('Failed to sign in')
   $('#message').removeClass()
   $('#message').addClass('failure')
   console.log('signInFailure error is ', error)
@@ -51,7 +51,7 @@ const changePasswordSuccess = function (data) {
 }
 
 const changePasswordFailure = function (error) {
-  $('#message').text('Error changing password')
+  $('#message').text('Failed to change password')
   $('#message').removeClass()
   $('#message').addClass('failure')
   console.log('changePasswordFailure error is ', error)
@@ -72,7 +72,7 @@ const signOutSuccess = function () {
 }
 
 const signOutFailure = function () {
-  $('#message').text('Error signing out')
+  $('#message').text('Failed to sign out')
   $('#message').removeClass()
   $('#message').addClass('failure')
   console.log('Failed to sign out!')
@@ -83,6 +83,9 @@ const newGameSuccess = function (data) {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('.box').show()
+  $('.box').text('')
+  $('.game').text('')
+  $('.info').text('')
   store.game = data.game.id
 }
 
