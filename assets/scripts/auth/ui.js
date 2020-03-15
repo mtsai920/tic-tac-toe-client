@@ -11,15 +11,14 @@ const signUpSuccess = function (data) {
   $('#sign-up').hide()
   $('#sign-in').show()
   $('#new-game').hide()
+  $('.game').hide()
   $('.stats').hide()
-  console.log('signUpSuccess data is ', data)
 }
 
-const signUpFailure = function (error) {
+const signUpFailure = function () {
   $('#message').text('Failed to sign up')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.log('signUpFailure error is ', error)
 }
 
 const signInSuccess = function (data) {
@@ -32,29 +31,25 @@ const signInSuccess = function (data) {
   $('#sign-in').hide()
   $('#new-game').show()
   $('.stats').show()
-  console.log('signInSuccess data is ', data)
   store.user = data.user
 }
 
-const signInFailure = function (error) {
+const signInFailure = function () {
   $('#message').text('Failed to sign in')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.log('signInFailure error is ', error)
 }
 
-const changePasswordSuccess = function (data) {
+const changePasswordSuccess = function () {
   $('#message').text('Changed password successfully!')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('Password changed!')
 }
 
-const changePasswordFailure = function (error) {
+const changePasswordFailure = function () {
   $('#message').text('Failed to change password')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.log('changePasswordFailure error is ', error)
 }
 
 const signOutSuccess = function () {
@@ -68,14 +63,12 @@ const signOutSuccess = function () {
   $('.box').hide()
   $('#new-game').hide()
   $('.stats').hide()
-  console.log('Signed out!')
 }
 
 const signOutFailure = function () {
-  $('#message').text('Failed to sign out')
+  $('#message').text('Failed to  out')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.log('Failed to sign out!')
 }
 
 const newGameSuccess = function (data) {
@@ -96,20 +89,18 @@ const newGameFailure = function () {
 }
 
 const getStatsSuccessful = function (data) {
-  console.log(data)
-  $('.info').text('You have played ' + data.games.length + ' games')
+  if (data.games.length === 1) {
+    $('.info').text('1 game played')
+  } else ($('.info').text(data.games.length + ' games played'))
 }
 
 const getStatsFailure = function (data) {
   $('.info').text('Failed to retrieve game info')
 }
 
-const updateGameSuccessful = function (data) {
-  console.log('game updated')
-}
+const updateGameSuccessful = function (data) {}
 
 const updateGameFailure = function (data) {
-  console.log('Failed to update game')
   $('.info').text('Failed to update game')
   $('.info').addClass('failure')
 }

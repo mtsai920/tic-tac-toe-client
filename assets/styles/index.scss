@@ -5,50 +5,60 @@ $red: #f00;
 $black: #000;
 $blue: #87CEFA;
 $gray: #708090;
+$salmon: #ffa07a;
 
 
 #change-password {
   display: none;
-  padding: 10px;
+  font-family: 'Overpass', sans-serif;
+  padding-bottom: 20px;
   text-align: center;
 }
 
 #sign-out {
   display: none;
+  font-family: 'Overpass', sans-serif;
   padding: 10px;
 }
 
 #sign-up {
+  font-family: 'Overpass', sans-serif;
   padding: 10px;
   text-align: center;
 }
 
 #sign-in {
+  font-family: 'Overpass', sans-serif;
   padding: 10px;
   text-align: center;
 }
 
 .game {
+  font-family: 'Overpass', sans-serif;
   font-size: 150%;
   text-align: center;
 }
 
 .info {
+  font-family: 'Overpass', sans-serif;
   font-size: 120%;
   text-align: center;
 }
 
 .stats {
   display: none;
+  font-family: 'Overpass', sans-serif;
   padding: 10px;
 }
 
 #new-game {
   display: none;
+  font-family: 'Overpass', sans-serif;
   padding: 10px;
 }
 
 #message {
+  font-family: 'Overpass', sans-serif;
   text-align: center;
 }
 
@@ -56,17 +66,20 @@ $gray: #708090;
   align-items: center;
   border: 1px solid $black;
   display: none;
-  font-size: 300%;
-  height: 120px;
+  // font-family: 'Baloo Chettan 2', cursive;
+  // font-family: 'Nunito', sans-serif;
+  font-family: 'Fredoka One', cursive;
+  font-size: 400%;
+  height: 145px;
   justify-content: center;
-  line-height: 120px;
-  padding: 10px;
+  line-height: 125px;
+  padding: 15px;
   text-align: center;
   transition: background .5s;
 }
 
 .box:hover {
-  background-color: $blue;
+  background-color: $salmon;
 }
 
 .container {
@@ -105,6 +118,8 @@ $gray: #708090;
 }
 
 h1 {
+  font-family: 'Overpass', sans-serif;
+  padding: 15px 0 0;
   text-align: center;
 }
 

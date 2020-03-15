@@ -8,7 +8,6 @@ const api = require('./api')
 
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('Signing up')
   const data = getFormFields(event.target)
   api.signUp(data)
     .then(ui.signUpSuccess)
@@ -17,7 +16,6 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('Signing in')
   const data = getFormFields(event.target)
   api.signIn(data)
     .then(ui.signInSuccess)
@@ -26,7 +24,6 @@ const onSignIn = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log('Changing password')
   const data = getFormFields(event.target)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
@@ -35,7 +32,6 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  console.log('Signing out')
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
@@ -64,7 +60,6 @@ const onClick = function (event) {
   // If a cell on the board is already taken, disallow any further activity and send the user a message
   if (gameBoard[id] !== null) {
     $('.info').text('Cannot play here!')
-    $('.info').addClass('failure')
     return
   }
 
@@ -95,7 +90,6 @@ const onClick = function (event) {
     onUpdateGame(player, id)
   }
 
-  console.log(gameBoard)
   count++
 
   // If the player has won, send out message before the player has to click to trigger it
@@ -105,6 +99,7 @@ const onClick = function (event) {
   }
 }
 
+// The updateGame api call
 const onUpdateGame = function (player, id) {
   api.updateGame(player, id)
     .then(ui.updateGameSuccessful)
