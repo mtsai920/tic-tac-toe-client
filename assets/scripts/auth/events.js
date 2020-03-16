@@ -108,8 +108,12 @@ const onUpdateGame = function (player, id) {
 // This function checks for a winner after the count has increased past 4. If there is none message "TIED"
 const checkWin = function (player) {
   if (count > 4) {
-    if (winGame(player) === true) {
-      $('.game').text('YOU WIN!')
+    if (winGame(player) === true && player === 'X') {
+      $('.game').text('PLAYER X WINS!')
+      $('.game').addClass('success')
+      return true
+    } else if (winGame(player) === true && player === 'O') {
+      $('.game').text('PLAYER O WINS!')
       $('.game').addClass('success')
       return true
     } else if (count === 9) {
