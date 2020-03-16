@@ -65,6 +65,7 @@ $salmon: #ffa07a;
 .box {
   align-items: center;
   border: 1px solid $black;
+  border-width: 2.5px;
   display: none;
   // font-family: 'Baloo Chettan 2', cursive;
   // font-family: 'Nunito', sans-serif;
@@ -86,11 +87,6 @@ $salmon: #ffa07a;
   width: 40%;
 }
 
-.success {
-  color: $green;
-  text-align: center;
-}
-
 .failure {
   color: $red;
   text-align: center;
@@ -98,6 +94,11 @@ $salmon: #ffa07a;
 
 .neutral {
   color: $black;
+  text-align: center;
+}
+
+.success {
+  color: $green;
   text-align: center;
 }
 

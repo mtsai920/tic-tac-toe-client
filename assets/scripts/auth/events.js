@@ -49,7 +49,7 @@ const onClick = function (event) {
   const cell = event.target
   // Assigning an ID variable to the ID of each individual cell
   const id = event.target.id
-  // This is called further in the click function. It's purpose is to stop the player from having to click again
+  // This is called further in the click function. It's purpose is to stop the player from having to click again to trigger the win message.
   if (game === true) {
     return
   }
@@ -59,6 +59,7 @@ const onClick = function (event) {
 
   // If a cell on the board is already taken, disallow any further activity and send the user a message
   if (gameBoard[id] !== null) {
+    $('.info').addClass('neutral')
     $('.info').text('Cannot play here!')
     return
   }
@@ -78,14 +79,12 @@ const onClick = function (event) {
     $(cell).text('X')
     gameBoard[id] = 'X'
     $('.info').text(`O's turn`)
-    $('.info').addClass('neutral')
     $('#message').text('')
     onUpdateGame(player, id)
   } else {
     $(cell).text('O')
     gameBoard[id] = 'O'
     $('.info').text(`X's turn`)
-    $('.info').addClass('neutral')
     $('#message').text('')
     onUpdateGame(player, id)
   }
