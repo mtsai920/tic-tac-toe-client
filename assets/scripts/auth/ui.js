@@ -43,6 +43,8 @@ const signInFailure = function () {
 }
 
 const changePasswordSuccess = function () {
+  const passText = document.getElementById('change-password')
+  passText.reset()
   $('#message').text('Changed password successfully!')
   $('#message').removeClass()
   $('#message').addClass('success')
