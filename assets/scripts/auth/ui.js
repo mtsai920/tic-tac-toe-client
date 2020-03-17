@@ -31,6 +31,8 @@ const signInSuccess = function (data) {
   $('#sign-in').hide()
   $('#new-game').show()
   $('.stats').show()
+  $('.game').show()
+  $('.info').show()
   store.user = data.user
 }
 
