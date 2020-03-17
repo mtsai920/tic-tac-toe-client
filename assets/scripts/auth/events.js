@@ -32,6 +32,10 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
+  const signInText = document.getElementById('sign-in')
+  signInText.reset()
+  const signUpText = document.getElementById('sign-up')
+  signUpText.reset()
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
@@ -51,6 +55,7 @@ const onClick = function (event) {
   const id = event.target.id
   // This is called further in the click function. It's purpose is to stop the player from having to click again to trigger the win message.
   if (game === true) {
+    $('.info').text('Game is over!')
     return
   }
 

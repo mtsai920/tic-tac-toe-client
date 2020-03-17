@@ -66,6 +66,7 @@ const signOutSuccess = function () {
   $('#new-game').hide()
   $('.stats').hide()
   $('.info').hide()
+  $('.game').hide()
 }
 
 const signOutFailure = function () {
