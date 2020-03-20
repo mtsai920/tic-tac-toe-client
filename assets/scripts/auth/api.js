@@ -4,6 +4,10 @@ const config = require('../config')
 
 const store = require('../store')
 
+const gameOver = require('./events')
+
+// const game = require('events')
+
 const signUp = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-up',
@@ -77,7 +81,7 @@ const updateGame = function (player, id) {
           value: player
         }
       },
-      over: false
+      over: gameOver
     }
   })
 }

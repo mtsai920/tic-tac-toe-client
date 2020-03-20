@@ -48,6 +48,8 @@ let count = 0
 
 let game = false
 
+let gameOver = false
+
 const onClick = function (event) {
   // Assigning a variable to the individual cells in the board
   const cell = event.target
@@ -99,6 +101,7 @@ const onClick = function (event) {
   // If the player has won, send out message before the player has to click to trigger it
   if (checkWin(player)) {
     game = true
+    gameOver = true
     $('.info').text('')
   }
 }

@@ -3,7 +3,7 @@
 const store = require('../store')
 
 const signUpSuccess = function (data) {
-  $('#message').text('Signed up successfully!')
+  $('#message').text('Signed up successfully! Please log in.')
   $('#message').removeClass()
   $('#message').addClass('success')
   $('#sign-out').hide()
@@ -16,6 +16,8 @@ const signUpSuccess = function (data) {
 }
 
 const signUpFailure = function () {
+  const signFail = document.getElementById('sign-up')
+  signFail.reset()
   $('#message').text('Failed to sign up')
   $('#message').removeClass()
   $('#message').addClass('failure')
@@ -32,11 +34,15 @@ const signInSuccess = function (data) {
   $('#new-game').show()
   $('.stats').show()
   $('.game').show()
+  $('.game').text('')
   $('.info').show()
+  $('.info').text('')
   store.user = data.user
 }
 
 const signInFailure = function () {
+  const signInFail = document.getElementById('sign-in')
+  signInFail.reset()
   $('#message').text('Failed to sign in')
   $('#message').removeClass()
   $('#message').addClass('failure')
@@ -51,6 +57,8 @@ const changePasswordSuccess = function () {
 }
 
 const changePasswordFailure = function () {
+  const passFail = document.getElementById('change-password')
+  passFail.reset()
   $('#message').text('Failed to change password')
   $('#message').removeClass()
   $('#message').addClass('failure')
@@ -95,6 +103,7 @@ const newGameFailure = function () {
 }
 
 const getStatsSuccessful = function (data) {
+  console.log(store.game)
   if (data.games.length === 1) {
     $('.info').text('1 game played')
   } else ($('.info').text(data.games.length + ' games played'))
