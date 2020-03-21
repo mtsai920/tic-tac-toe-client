@@ -13,6 +13,7 @@ const signUpSuccess = function (data) {
   $('#new-game').hide()
   $('.game').hide()
   $('.stats').hide()
+  $('#warn').hide()
 }
 
 const signUpFailure = function () {
@@ -37,6 +38,7 @@ const signInSuccess = function (data) {
   $('.game').text('')
   $('.info').show()
   $('.info').text('')
+  $('#warn').hide()
   store.user = data.user
 }
 
@@ -77,6 +79,7 @@ const signOutSuccess = function () {
   $('.stats').hide()
   $('.info').hide()
   $('.game').hide()
+  $('#warn').show()
 }
 
 const signOutFailure = function () {

@@ -3,15 +3,14 @@
 $green: #008000;
 $red: #f00;
 $black: #000;
-$blue: #87CEFA;
 $gray: #708090;
 $salmon: #ffa07a;
 
+// ---------------- Misc. Messaging ---------------- //
 
-#change-password {
-  display: none;
+h1 {
   font-family: 'Overpass', sans-serif;
-  padding-bottom: 20px;
+  padding: 15px 0 0;
   text-align: center;
 }
 
@@ -33,6 +32,36 @@ $salmon: #ffa07a;
   text-align: center;
 }
 
+#change-password {
+  display: none;
+  font-family: 'Overpass', sans-serif;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+#new-game {
+  display: none;
+  font-family: 'Overpass', sans-serif;
+  padding: 10px;
+}
+
+#message {
+  font-family: 'Overpass', sans-serif;
+  text-align: center;
+}
+
+#warn {
+  font-family: 'Overpass', sans-serif;
+  text-align: center;
+}
+
+.copyright {
+  bottom: 10px;
+  font-family: 'Overpass', sans-serif;
+  position: absolute;
+  right: 30px;
+}
+
 .game {
   font-family: 'Overpass', sans-serif;
   text-align: center;
@@ -51,15 +80,10 @@ $salmon: #ffa07a;
   padding: 10px;
 }
 
-#new-game {
-  display: none;
-  font-family: 'Overpass', sans-serif;
-  padding: 10px;
-}
+// ---------------- Tic Tac Toe Board ---------------- //
 
-#message {
-  font-family: 'Overpass', sans-serif;
-  text-align: center;
+body {
+  background-color: lighten($gray, 40%);
 }
 
 .box {
@@ -77,29 +101,14 @@ $salmon: #ffa07a;
   padding: 15px;
   text-align: center;
   transition: background .5s;
-}
 
-.box:hover {
-  background-color: $salmon;
+  &:hover {
+    background-color: $salmon;
+    }
 }
 
 .container {
   width: 40%;
-}
-
-.failure {
-  color: $red;
-  text-align: center;
-}
-
-.neutral {
-  color: $black;
-  text-align: center;
-}
-
-.success {
-  color: $green;
-  text-align: center;
 }
 
 .top-row {
@@ -118,15 +127,24 @@ $salmon: #ffa07a;
   border-right: 0;
 }
 
-h1 {
-  font-family: 'Overpass', sans-serif;
-  padding: 15px 0 0;
+// ---------------- Messaging Classes ---------------- //
+
+.failure {
+  color: $red;
   text-align: center;
 }
 
-body {
-  background-color: lighten($gray, 40%);
+.neutral {
+  color: $black;
+  text-align: center;
 }
+
+.success {
+  color: $green;
+  text-align: center;
+}
+
+// ---------------- New Game, Stats, and Sign Out ---------------- //
 
 .extra {
   display: flex;
